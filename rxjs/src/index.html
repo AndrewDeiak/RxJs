@@ -10,8 +10,38 @@
 </head>
 <body>
 <div class="container mt-3">
+    <h4>Search user on github</h4>
     <input type="text" class="form-control mb-3" placeholder="Username" id="search">
-    <div id="container" class="d-flex flex-wrap">
+    <div id="result-search" class="d-flex flex-wrap"></div>
+    <hr>
+
+    <h4>HTML generator</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="text-container"></div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Text</label>
+                <div class="col-10">
+                    <input type="text" id="text-input" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Font Size</label>
+                <div class="col-10">
+                    <input type="range" id="range" class="custom-range" min="5" max="90" step="5">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Color</label>
+                <div class="col-10">
+                    <input id="color" class="form-control" type="color" value="#563d7c">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
