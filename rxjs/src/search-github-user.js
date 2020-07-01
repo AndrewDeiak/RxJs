@@ -4,7 +4,7 @@ import {ajax} from "rxjs/ajax";
 
 const API_URL = "https://api.github.com/search/users?q=";
 const searchField = document.getElementById("search");
-const resultSearch = document.getElementById("serult-search");
+const resultSearch = document.getElementById("result-search");
 const stream$ = fromEvent(searchField, "input")
     .pipe(
         map(e => e.target.value),
