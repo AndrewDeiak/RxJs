@@ -1,5 +1,10 @@
 import {combineLatest, of} from "rxjs";
-import {ObserverE} from "../examples";
+
+export const ObserverA = {
+    next: (v) => console.log("[A] next", v),
+    error: (err) => console.log("[A] error", err),
+    complete: () => console.log("[A] Complete"),
+};
 
 /**
  * difference between combineLatest and zip
@@ -20,4 +25,4 @@ const volume$ = combineLatest(width$, height, length$, (width, height, length) =
     return width * height * length
 });
 
-volume$.subscribe(ObserverE);
+volume$.subscribe(ObserverA);
