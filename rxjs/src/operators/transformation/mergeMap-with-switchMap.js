@@ -1,24 +1,7 @@
 import {ajax} from "rxjs/ajax";
 import {fromEvent, interval, of} from "rxjs";
 import {map, mergeMap, pairwise} from "rxjs/operators";
-
-export const ObserverA = {
-    next: (v) => console.log("[A] next", v),
-    error: (err) => console.log("[A] error", err),
-    complete: () => console.log("[A] Complete"),
-};
-
-export const ObserverB = {
-    next: (v) => console.log("[B] next", v),
-    error: (err) => console.log("[B] error", err),
-    complete: () => console.log("[B] Complete"),
-};
-
-export const ObserverC = {
-    next: (v) => console.log("[C] next", v),
-    error: (err) => console.log("[C] error", err),
-    complete: () => console.log("[C] Complete"),
-};
+import {ObserverB, ObserverC} from "../../utils/utils";
 
 /**
  mergeMap allows for multiple inner subscriptions to be active at a time

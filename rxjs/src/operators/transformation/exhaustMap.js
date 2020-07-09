@@ -1,12 +1,7 @@
 import {ajax} from "rxjs/ajax";
 import {delay, exhaustMap} from "rxjs/operators";
 import {fromEvent} from "rxjs";
-
-export const ObserverA = {
-    next: (v) => console.log("[A] next", v),
-    error: (err) => console.log("[A] error", err),
-    complete: () => console.log("[A] Complete"),
-};
+import {ObserverA} from "../../utils/utils";
 
 const click$ = fromEvent(document, 'click');
 
