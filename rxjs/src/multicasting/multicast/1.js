@@ -1,21 +1,29 @@
 import {multicast, tap} from "rxjs/operators";
 import {interval, ReplaySubject} from "rxjs";
+import {ObserverA, ObserverB} from "../../utils/utils";
 
 /** multicast - share source utilizing the provided Subject */
 
 const interval$ = interval(1000);
 
-/** since we are multicasting below, side effects will be executed once */
-
-const source$ = interval$.pipe(
+const connectableObservable = interval$.pipe(
     tap(v => console.log('Side Effect, v', v)),
+    /** can use any type of subject */
+    multicast(() => new ReplaySubject(3))
 );
 
-/** can use any type of subject */
-
-const multi$ = source$.pipe(multicast(() => new ReplaySubject(3)));
-multi$.connect();
+const sub = connectableObservable.connect();
+const subA = connectableObservable.subscribe(ObserverA);
 
 /** subscriber will receive all previous values on subscription because of ReplaySubject */
+let subB;
+setTimeout(() => subB = connectableObservable.subscribe(ObserverB), 3000);
 
-setTimeout(() => multi$.subscribe(val => console.log("multi val", val)), 3000);
+setTimeout(() => {
+    subA.unsubscribe();
+    subB.unsubscribe();
+    /** steam will still execute with tap()*/
+}, 5000);
+
+/** stream will only stop  with unsubscribing from connectableObservable.connect() */
+setTimeout(() => setTimeout(() => sub.unsubscribe()), 15000);
