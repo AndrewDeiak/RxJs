@@ -5,4 +5,5 @@
 // import "./operators/creation/empty"
 // import "./operators/multicasting/share"
 // import "./operators/transformation/exhaustMap"
-import "./features/next-function"
+// import "./features/next-function"
+import "./multicasting/publish"
