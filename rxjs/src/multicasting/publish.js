@@ -8,6 +8,7 @@ const interval$ = interval(1000).pipe(
 );
 
 /**
+ * Share source and make hot by calling connect.
  * sourse will no emit values until connect called()
  */
 

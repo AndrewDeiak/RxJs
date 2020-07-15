@@ -1,7 +1,7 @@
 import {interval} from "rxjs";
 import {filter, map, share, take, toArray} from "rxjs/operators";
 import {ajax} from "rxjs/ajax";
-import {ObserverA, ObserverB, ObserverC, ObserverD, ObserverE} from "../../utils/utils";
+import {ObserverA, ObserverB, ObserverC, ObserverD, ObserverE} from "../utils/utils";
 
 const interval$ = interval(1000).pipe(
     take(5),
