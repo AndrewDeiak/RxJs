@@ -1,7 +1,7 @@
 import {multicast, tap} from "rxjs/operators";
 import {interval, ReplaySubject} from "rxjs";
 
-/** 1 */
+/** multicast - share source utilizing the provided Subject */
 
 const interval$ = interval(1000);
 

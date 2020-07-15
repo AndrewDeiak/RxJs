@@ -1,18 +1,16 @@
 import {interval} from "rxjs";
-import {ObserverA} from "../utils/utils";
 import {publish, tap} from "rxjs/operators";
+import {ObserverA} from "../../utils/utils";
 
-/** 1 */
+/** publish - share source and make hot by calling connect */
 
 const interval$ = interval(1000).pipe(
-    tap(v => console.log("tap ", v)),
+    tap(v => console.log("Side Effect, v", v)),
     publish()
 );
 
-/**
- * Share source and make hot by calling connect.
- * source will no emit values until connect called()
- */
+/** source will no emit values until connect called() */
 
 interval$.subscribe(ObserverA);
 setTimeout(() => interval$.connect(), 3000);
+

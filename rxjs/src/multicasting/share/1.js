@@ -1,7 +1,11 @@
 import {interval} from "rxjs";
 import {filter, map, share, take, toArray} from "rxjs/operators";
-import {ajax} from "rxjs/ajax";
-import {ObserverA, ObserverB, ObserverC, ObserverD, ObserverE} from "../utils/utils";
+import {ObserverA, ObserverB, ObserverC} from "../../utils/utils";
+
+/**
+ * share - share source among multiple subscribers
+ * share is like multicast with a Subject and refCount
+ */
 
 const interval$ = interval(1000).pipe(
     take(5),
@@ -26,9 +30,3 @@ const bigNum$ = random$.pipe(
 random$.subscribe(ObserverA);
 smallNum$.subscribe(ObserverB);
 bigNum$.subscribe(ObserverC);
-
-const request$ = ajax("https://jsonplaceholder.typicode.com/todos/1").pipe(share());
-
-request$.subscribe(ObserverD);
-request$.subscribe(ObserverE);
-// setTimeout(() => request$.subscribe(ObserverE), 1000);

@@ -5,9 +5,7 @@ import {ObserverA} from "../../utils/utils";
 
 const click$ = fromEvent(document, 'click');
 
-/**
- * Map to inner observable, ignore other values until that observable completes
- */
+/** exhaustMap - map to inner observable, ignore other values until that observable completes */
 
 const request$ = ajax("https://jsonplaceholder.typicode.com/todos/1");
 
