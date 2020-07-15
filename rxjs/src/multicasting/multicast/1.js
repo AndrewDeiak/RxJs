@@ -22,8 +22,8 @@ setTimeout(() => subB = connectableObservable.subscribe(ObserverB), 3000);
 setTimeout(() => {
     subA.unsubscribe();
     subB.unsubscribe();
-    /** steam will still execute with tap()*/
+    /** steam will still execute with Side Effect */
 }, 5000);
 
-/** stream will only stop  with unsubscribing from connectableObservable.connect() */
+/** stream will only stop with unsubscribing from connectableObservable.connect() */
 setTimeout(() => setTimeout(() => sub.unsubscribe()), 15000);
