@@ -6,4 +6,5 @@
 // import "./operators/multicasting/share"
 // import "./operators/transformation/exhaustMap"
 // import "./features/next-function"
-import "./multicasting/publish"
+// import "./multicasting/publish"
+import "./multicasting/multicast"
