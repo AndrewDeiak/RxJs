@@ -16,6 +16,7 @@ const sub = connectableObservable.connect();
 const subA = connectableObservable.subscribe(ObserverA);
 
 /** subscriber will receive all previous values on subscription because of ReplaySubject */
+
 let subB;
 setTimeout(() => subB = connectableObservable.subscribe(ObserverB), 3000);
 
@@ -26,4 +27,5 @@ setTimeout(() => {
 }, 5000);
 
 /** stream will only stop with unsubscribing from connectableObservable.connect() */
+
 setTimeout(() => setTimeout(() => sub.unsubscribe()), 15000);
