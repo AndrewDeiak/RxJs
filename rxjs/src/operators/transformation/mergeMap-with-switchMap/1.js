@@ -9,10 +9,10 @@ import {ObserverA} from "../../../utils/utils";
  */
 
 const userData$ = ajax("https://jsonplaceholder.typicode.com/todos/1");
-const resOnInteval$ = interval(10).pipe(
+const responseOnInterval$ = interval(10).pipe(
     mergeMap(() => userData$), // multiple inner subscriptions to be active at a time
     // switchMap(() => userData$), // if the request will take more then 10 ms it will be canceled
     map(data => data.response)
 );
 
-resOnInteval$.subscribe(ObserverA);
+responseOnInterval$.subscribe(ObserverA);
